@@ -4,72 +4,74 @@ class Program
 {
     static void Main()
     {
-        var lista = new ListaDoble<string>();
-        int opcion;
+        var list = new DoublyLinkedList<string>();
+        int option;
 
         do
         {
-            Console.WriteLine("\n1. Adicionar");
-            Console.WriteLine("2. Mostrar adelante");
-            Console.WriteLine("3. Mostrar atrás");
-            Console.WriteLine("4. Ordenar descendente");
-            Console.WriteLine("5. Mostrar moda");
-            Console.WriteLine("6. Mostrar gráfico");
-            Console.WriteLine("7. Existe");
-            Console.WriteLine("8. Eliminar una");
-            Console.WriteLine("9. Eliminar todas");
-            Console.WriteLine("0. Salir");
+            Console.WriteLine("\n1. Add");
+            Console.WriteLine("2. Show forward");
+            Console.WriteLine("3. Show backward");
+            Console.WriteLine("4. Sort descending");
+            Console.WriteLine("5. Show mode");
+            Console.WriteLine("6. Show graph");
+            Console.WriteLine("7. Exists");
+            Console.WriteLine("8. Remove one");
+            Console.WriteLine("9. Remove all");
+            Console.WriteLine("0. Exit");
 
-            Console.Write("Opción: ");
-            if (!int.TryParse(Console.ReadLine(), out opcion))
+            Console.Write("Option: ");
+            if (!int.TryParse(Console.ReadLine(), out option))
             {
-                Console.WriteLine("Entrada inválida.");
+                Console.WriteLine("Invalid input.");
                 continue;
             }
 
-            switch (opcion)
+            switch (option)
             {
                 case 1:
-                    Console.Write("Dato: ");
-                    lista.Adicionar(Console.ReadLine()!);
+                    Console.Write("Data: ");
+                    list.Add(Console.ReadLine()!);
                     break;
 
                 case 2:
-                    lista.MostrarAdelante();
+                    list.ShowForward();
                     break;
 
                 case 3:
-                    lista.MostrarAtras();
+                    list.ShowBackward();
                     break;
 
                 case 4:
-                    lista.OrdenarDescendente();
+                    list.SortDescending();
                     break;
 
                 case 5:
-                    lista.MostrarModa();
+                    list.ShowMode();
                     break;
 
                 case 6:
-                    lista.MostrarGrafico();
+                    list.ShowGraph();
                     break;
 
                 case 7:
-                    Console.Write("Buscar: ");
-                    Console.WriteLine(lista.Existe(Console.ReadLine()!) ? "Sí existe" : "No existe");
+                    Console.Write("Search: ");
+                    Console.WriteLine(list.Exists(Console.ReadLine()!)
+                        ? "It exists"
+                        : "It does not exist");
                     break;
 
                 case 8:
-                    Console.Write("Eliminar uno: ");
-                    lista.EliminarUna(Console.ReadLine()!);
+                    Console.Write("Remove one: ");
+                    list.RemoveOne(Console.ReadLine()!);
                     break;
 
                 case 9:
-                    Console.Write("Eliminar todos: ");
-                    lista.EliminarTodas(Console.ReadLine()!);
+                    Console.Write("Remove all: ");
+                    list.RemoveAll(Console.ReadLine()!);
                     break;
             }
 
-        } while (opcion != 0);
+        } while (option != 0);
     }
 }
